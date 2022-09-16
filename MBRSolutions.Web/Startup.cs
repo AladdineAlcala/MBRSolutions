@@ -1,3 +1,7 @@
+using MBRSolutions.Web.HelperClass;
+using MBRSolutions.Web.Services;
+using MBRSolutions.Web.Services.IServices;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,7 +27,40 @@ namespace MBRSolutions.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient<IProductService, ProductService>();
+
+            //base url from appsettings.json Service_Urls
+            SD.Product_API_Base = Configuration["Service_Urls:ProductAPI"];
+
+            services.AddScoped<IProductService, ProductService>();
+
             services.AddControllersWithViews();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc";
+
+            })
+                .AddCookie("Cookies", c => c.ExpireTimeSpan = TimeSpan.FromMinutes(10))
+                .AddOpenIdConnect("oidc", options =>
+                    {
+                        options.Authority = Configuration["Service_Urls:IdentityAPI"];
+                        options.GetClaimsFromUserInfoEndpoint = true;
+                        options.ClientId = "jewel";
+                        options.ClientSecret = "topsecret";
+                        options.ResponseType = "code";
+
+                        options.ClaimActions.MapJsonKey("role", "role", "role");
+                        options.ClaimActions.MapJsonKey("sub", "sub", "sub");
+
+                        options.TokenValidationParameters.NameClaimType = "name";
+                        options.TokenValidationParameters.RoleClaimType = "role";
+
+                        options.Scope.Add("jewel");
+                        options.SaveTokens = true;
+                    });
+            ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +80,8 @@ namespace MBRSolutions.Web
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

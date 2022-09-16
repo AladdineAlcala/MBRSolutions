@@ -1,0 +1,56 @@
+﻿
+@model IEnumerable<MBRSolutions.Web.Models.ProductDTO>
+
+
+<br />
+<br />
+
+<div class="container p-4 border">
+
+    <div class="row pb-2">
+
+        <div class="col">
+            <h1 class="text-info"> List of Products</h1>
+        </div>
+        <div class="col text-end">
+            <a href="#" class="btn btn-outline-info"><i class="fas fa-plus"></i> Add New</a>
+        </div>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                
+                <th scope="col">Name </th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    
+                    <td>@item.Prod_Name</td>
+                    <td>@item.Prod_Desc</td>
+                    <td>@string.Format("{0:C}", item.Price)</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-evenly">
+                            <a class="btn btn-primary" role="button" aria-disabled="true"><i class="fas fa-edit"></i></a>
+
+                            <a asp-action="deleteproduct" asp-controller="Product" class="btn btn-danger" role="button" aria-disabled="true" asp-route-productId="@item.ProductId">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </div>
+                      
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>

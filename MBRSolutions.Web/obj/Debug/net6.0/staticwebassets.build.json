@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jK5DUinQxb+HGgpBfsT88rMoEIrWJxob1gFFns+dLsQ=",
+  "Hash": "z+a2qXSo+gZCri2JBa81Bm8Rw2bvL2vn6nWlxpR1G3g=",
   "Source": "MBRSolutions.Web",
   "BasePath": "_content/MBRSolutions.Web",
   "Mode": "Default",
@@ -61,6 +61,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Repos\\MBRSolutions\\MBRSolutions.Web\\wwwroot\\images\\5162367-middle.png",
+      "SourceId": "MBRSolutions.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repos\\MBRSolutions\\MBRSolutions.Web\\wwwroot\\",
+      "BasePath": "_content/MBRSolutions.Web",
+      "RelativePath": "images/5162367-middle.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\5162367-middle.png"
+    },
+    {
+      "Identity": "D:\\Repos\\MBRSolutions\\MBRSolutions.Web\\wwwroot\\images\\transparent-necklace.png",
+      "SourceId": "MBRSolutions.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repos\\MBRSolutions\\MBRSolutions.Web\\wwwroot\\",
+      "BasePath": "_content/MBRSolutions.Web",
+      "RelativePath": "images/transparent-necklace.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\transparent-necklace.png"
     },
     {
       "Identity": "D:\\Repos\\MBRSolutions\\MBRSolutions.Web\\wwwroot\\js\\site.js",
